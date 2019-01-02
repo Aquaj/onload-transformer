@@ -1,11 +1,11 @@
 require 'sprockets'
 
 module Sprockets
-  class VendorTransformer
+  class OnloadTransformer
     def self.call(input)
       asset_name = input[:name]
       body = input[:data]
-      util_function_name = "vendorTransformerUtilLoad#{to_function_key(asset_name)}"
+      util_function_name = "onloadTransformerUtil#{to_function_key(asset_name)}"
       wrapped_in_event = <<-JS
         function #{util_function_name}() {
           #{body}
@@ -27,13 +27,13 @@ module Sprockets
   end
 
   if respond_to?(:register_transformer)
-    register_mime_type 'application/vendor-javascript', extensions: ['.vendor.js'], charset: :unicode
-    register_transformer 'application/vendor-javascript', 'application/javascript', VendorTransformer
-    register_preprocessor 'application/vendor-javascript', DirectiveProcessor
+    register_mime_type 'application/onload-javascript', extensions: ['.onload.js'], charset: :unicode
+    register_transformer 'application/onload-javascript', 'application/javascript', OnloadTransformer
+    register_preprocessor 'application/onload-javascript', DirectiveProcessor
   end
 
   if respond_to?(:register_engine)
-    args = ['.vendor.js',  VendorTransformer]
+    args = ['.onload.js',  OnloadTransformer]
     if Sprockets::VERSION.start_with?("3")
       args << { mime_type: 'application/javascript', silence_deprecation: true }
     end
