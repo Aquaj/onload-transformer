@@ -11,5 +11,5 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.license = "MIT"
 
-  s.add_dependency 'sprockets', '>= 3.0', '<= 4'
+  s.add_dependency 'sprockets', '>= 2.0', '<= 4'
 end
