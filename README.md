@@ -21,8 +21,5 @@ It just wraps the whole file in a function and then binds it to the `DOMContentL
 ## What? (can be improved)
 
 Probably a lot of stuff, but at least:
-
  - [ ] The functions used to wrap the body of the file are in the global namespace. It would be better if they were defined on a transformer-only object.
-
  - [ ] Make it so it can be used with .js.erb / .js.coffee (maybe ?)
-
