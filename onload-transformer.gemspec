@@ -6,10 +6,11 @@ Gem::Specification.new do |s|
   s.authors = ["Jérémie Bonal"]
   s.email = ["jeremie.bonal@gmail.com"]
   s.version = Sprockets::OnloadTransformer::VERSION
-  s.summary = "A short extension of Sprockets to wrap vendor JS libs to wait on DOMContentLoaded"
+  s.summary = "A short extension of Sprockets to wrap JS libs so they wait for DOMContentLoaded"
   s.files = `git ls-files`.split("\n")
   s.require_paths = ["lib"]
   s.license = "MIT"
+  s.homepage = "http://github.com/Aquaj/onload-transformer"
 
   s.add_dependency 'sprockets', '>= 2.0', '<= 4'
 end
